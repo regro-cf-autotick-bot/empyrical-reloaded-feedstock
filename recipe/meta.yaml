@@ -6,20 +6,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/empyrical-reloaded-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/empyrical-reloaded-{{ version }}.tar.gz
   sha256: 9d8163e301bdff411adef5e604547958a3a17122fc1274f6c9ae906f14ee5fb7
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - numpy >=1.9.2
     - bottleneck >=1.3.0
     - pandas >=1.0.0
@@ -28,6 +28,8 @@ requirements:
     - yfinance >=0.1.63
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - empyrical
 
