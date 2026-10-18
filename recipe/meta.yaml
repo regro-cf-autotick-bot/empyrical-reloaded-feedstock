@@ -1,13 +1,13 @@
 {% set name = "empyrical-reloaded" %}
-{% set version = "0.5.9" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/empyrical-reloaded-{{ version }}.tar.gz
-  sha256: 9d8163e301bdff411adef5e604547958a3a17122fc1274f6c9ae906f14ee5fb7
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 6c5dce2c9bdfb2f171c20da04d1b94ca4218a5ffc411909c64ec37de34b6874d
 
 build:
   noarch: python
